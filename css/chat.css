@@ -1,0 +1,231 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  width: 100%;
+  padding: 10px 0px 0px 0px;
+  background-color: white;
+  box-shadow: 0 8px 20px -8px rgba(13, 75, 13, 0.3),
+    0 -6px 20px -6px rgba(62, 134, 29, 0.025);
+}
+
+/*.chat-screen {
+  margin: 0px -20px;
+}*/
+
+.chats-body {
+  padding: 10px 0px;
+  padding-top: 100px;
+}
+
+.chats-body .header,
+.chats-body .status-bar {
+  padding: 0px 20px;
+}
+
+.chats-body {
+  background-image: url("../images/so-white.png");
+  min-height: 1000vh;
+}
+
+.chat__write--container {
+  position: fixed;
+  bottom: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 20px;
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 20px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-100px);
+    box-shadow: 0 8px 20px -8px rgba(13, 75, 13, 0.3),
+      0 -6px 20px -6px rgba(62, 134, 29, 0.025);
+  }
+
+  25% {
+    transform: translateY(-105px);
+    box-shadow: 0 8px 10px -8px rgba(13, 75, 13, 0.3),
+      0 -6px 10px -6px rgba(62, 134, 29, 0.025);
+  }
+
+  50% {
+    transform: translateY(-100px);
+    box-shadow: 0 8px 20px -8px rgba(13, 75, 13, 0.3),
+      0 -6px 20px -6px rgba(62, 134, 29, 0.025);
+  }
+
+  75% {
+    transform: translateY(-95px);
+    box-shadow: 0 8px 30px -8px rgba(13, 75, 13, 0.3),
+      0 -6px 30px -6px rgba(62, 134, 29, 0.025);
+  }
+
+  100% {
+    transform: translateY(-100px);
+    box-shadow: 0 8px 20px -8px rgba(13, 75, 13, 0.3),
+      0 -6px 20px -6px rgba(62, 134, 29, 0.025);
+  }
+}
+
+.chat__write {
+  margin: 0 auto;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px 60px;
+  border: none;
+  font-size: 14px;
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 80%;
+  transform: translateY(-100px);
+  border-radius: 40px;
+  transform: all 0.5s ease-in-out;
+  animation: float 3s linear infinite forwards;
+}
+
+.chat__icon {
+  font-size: 18px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.chat__write:focus ~ .chat__icon {
+  opacity: 0;
+}
+
+.chat__write-column:nth-child(2) {
+  width: 80%;
+}
+
+.chat__write-column input {
+  padding: 20px 10px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+}
+
+.chat-screen .chat__messages {
+  border-top: 1px solid #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px;
+  padding-top: 30px;
+}
+
+.chat__messages .chat__timestamp {
+  background-color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+}
+
+.incoming-message {
+  align-self: flex-start;
+}
+
+.sent-message {
+  align-self: flex-end;
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.incoming-message img {
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  margin-right: 15px;
+  animation: spin 2s linear 1;
+}
+
+.message .message__bubble {
+  display: block;
+  background-color: white;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.incoming-message .message__author {
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.incoming-message .message__bubble {
+  border-top-left-radius: 0px;
+  background-image: linear-gradient(to right, #76b852, #8dc26f);
+}
+
+.sent-message .message__bubble {
+  border-top-right-radius: 0px;
+  background-image: linear-gradient(to left, #76b852, #8dc26f);
+}
+
+.incoming-message {
+  animation: incomingAnim 0.5s ease-out forwards;
+}
+
+.sent-message {
+  animation: sentAnim 0.5s ease-out forwards;
+}
+
+@keyframes incomingAnim {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sentAnim {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
